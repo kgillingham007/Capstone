@@ -2,15 +2,16 @@ package gillingham.capstone.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.CssMetaData;
-
-import static javafx.collections.FXCollections.checkedObservableList;
 
 public class Search {
 
     public static ObservableList<Customer> allCustomers = checkedObservableList();
 
-    public static ObservableList<Appointments> allAppointments = checkedObservableList();
+    private static ObservableList<Customer> checkedObservableList() {
+        return null;
+    }
+
+    public static ObservableList<Customer> allAppointments = checkedObservableList();
 
     public static ObservableList<Customer> lookUpCustomer_Name(String partialCustomerName){
         ObservableList<Customer> customerName = FXCollections.observableArrayList();

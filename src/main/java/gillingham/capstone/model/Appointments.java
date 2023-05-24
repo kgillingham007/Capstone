@@ -1,12 +1,16 @@
 package gillingham.capstone.model;
 
+import javafx.collections.ObservableList;
+
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 /**Appointment Class
  *
  */
 public class Appointments {
 
+    private static ObservableList<Appointments> allAppointments;
     /**Appointment Identifiers
      *
      */
@@ -20,6 +24,7 @@ public class Appointments {
     public int contactID;
     public int customerID;
     public int userID;
+    private Collection<Object> name;
 
     /**Creating appointments
      *
@@ -52,6 +57,14 @@ public class Appointments {
         this.contactID = contactID;
 
 
+    }
+
+    public static ObservableList<Appointments> getAllAppointments() {
+        return allAppointments;
+    }
+
+    public static void setAllAppointments(ObservableList<Appointments> allAppointments) {
+        Appointments.allAppointments = allAppointments;
     }
 
 
@@ -233,8 +246,11 @@ public class Appointments {
     }
 
 
+    public Collection<Object> getName() {
+        return name;
+    }
 
-
-
-
+    public void setName(Collection<Object> name) {
+        this.name = name;
+    }
 }

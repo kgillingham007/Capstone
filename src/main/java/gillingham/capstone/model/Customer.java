@@ -6,10 +6,13 @@ import gillingham.capstone.Database.firstleveldivisionDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.Collection;
+
 /**Customer class model
  *
  */
 public class Customer {
+    private static ObservableList<Customer> allCustomers;
     /**Customer identifiers
      *
      */
@@ -24,6 +27,15 @@ public class Customer {
     private ObservableList<Country> customerCountry = FXCollections.observableArrayList();
     private ObservableList<firstLevelDivision> customerFLDivision = FXCollections.observableArrayList();
     private int customerCountryID;
+    private Collection<Object> name;
+
+    public static ObservableList<Customer> getAllCustomers() {
+        return allCustomers;
+    }
+
+    public static void setAllCustomers(ObservableList<Customer> allCustomers) {
+        Customer.allCustomers = allCustomers;
+    }
 
     /**Used to get customerCountryID
      *
@@ -184,4 +196,11 @@ public class Customer {
     }
 
 
+    public Collection<Object> getName() {
+        return name;
+    }
+
+    public void setName(Collection<Object> name) {
+        this.name = name;
+    }
 }
