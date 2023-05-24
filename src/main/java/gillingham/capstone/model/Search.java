@@ -4,11 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.CssMetaData;
 
+import static javafx.collections.FXCollections.checkedObservableList;
+
 public class Search {
 
-    public static ObservableList<Customer> allCustomers = FXCollections.checkedObservableList();
+    public static ObservableList<Customer> allCustomers = checkedObservableList();
 
-    public static ObservableList<Appointments> allAppointments = FXCollections.checkedObservableList();
+    public static ObservableList<Appointments> allAppointments = checkedObservableList();
 
     public static ObservableList<Customer> lookUpCustomer_Name(String partialCustomerName){
         ObservableList<Customer> customerName = FXCollections.observableArrayList();
