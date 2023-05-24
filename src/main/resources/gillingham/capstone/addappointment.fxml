@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="628.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.softwaretwoc195.controller.AddAppointmentController">
+<AnchorPane prefHeight="628.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.capstone.controller.AddAppointmentController">
     <children>
         <Label layoutX="17.0" layoutY="13.0" prefHeight="32.0" prefWidth="156.0" text="Add Appointment">
             <font>

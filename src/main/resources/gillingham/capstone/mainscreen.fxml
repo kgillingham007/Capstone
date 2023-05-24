@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="570.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.softwaretwoc195.controller.MainScreenController">
+<AnchorPane prefHeight="570.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.capstone.controller.MainScreenController">
     <children>
         <Label layoutX="35.0" layoutY="45.0" prefHeight="27.0" prefWidth="121.0" text="Appointments">
             <font>
