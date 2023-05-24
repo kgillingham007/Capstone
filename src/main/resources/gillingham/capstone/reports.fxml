@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gillingham.capstone.Reports"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="607.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.softwaretwoc195.controller.ReportsController">
+    <children>
+        <Label layoutX="35.0" layoutY="9.0" prefHeight="27.0" prefWidth="121.0" text="Reports">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <TableView fx:id="reportsContactInformationTableView" layoutX="35.0" layoutY="80.0" prefHeight="172.0" prefWidth="793.0">
+            <columns>
+                <TableColumn fx:id="reportsContactInformationIDColumn" prefWidth="38.0" text="ID" />
+                <TableColumn fx:id="reportsContactInformationTitleColumn" prefWidth="123.0" text="Title" />
+                <TableColumn fx:id="reportsContactInformationDescriptionColumn" prefWidth="192.0" text="Description" />
+                <TableColumn fx:id="reportsContactInformationTypeColumn" prefWidth="108.0" text="Type" />
+                <TableColumn fx:id="reportsContactInformationStartColumn" prefWidth="122.0" text="Start Date &amp; Time" />
+                <TableColumn fx:id="reportsContactInformationEndColumn" prefWidth="108.0" text="End Date &amp; Time" />
+                <TableColumn fx:id="reportsContactInformationCustomerIDColumn" minWidth="0.0" prefWidth="101.0" text="Customer ID" />
+            </columns>
+        </TableView>
+        <Label layoutX="46.0" layoutY="311.0" prefHeight="27.0" prefWidth="239.0" text="Appointment Total by Month">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TableView fx:id="reportsAppointmentsMonthTotalTableView" layoutX="35.0" layoutY="341.0" prefHeight="175.0" prefWidth="260.0">
+            <columns>
+                <TableColumn fx:id="reportsAppointmentsMonthTotalMonthColumn" prefWidth="137.0" text="Appointment Month" />
+                <TableColumn fx:id="reportsAppointmentsMonthTotalTotalColumn" prefWidth="122.0" text="Appointment Total" />
+            </columns>
+        </TableView>
+        <Line endX="574.0" layoutX="309.0" layoutY="306.0" startX="-309.0" />
+        <Label layoutX="613.0" layoutY="311.0" prefHeight="27.0" prefWidth="216.0" text="Customer Total by Country">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="reportsSelectContactComboBox" layoutX="628.0" layoutY="29.0" onAction="#reportsSelectContactComboBoxClicked" prefHeight="25.0" prefWidth="200.0" />
+        <Label layoutX="540.0" layoutY="33.0" text="Select Contact:" />
+        <TableView fx:id="reportsCustomerCountryTableView" layoutX="591.0" layoutY="341.0" prefHeight="175.0" prefWidth="260.0">
+            <columns>
+                <TableColumn fx:id="reportsCustomerCountryCountryColumn" prefWidth="139.0" text="Country" />
+                <TableColumn fx:id="reportsCustomerCountryTotalColumn" prefWidth="120.0" text="Customer Total" />
+            </columns>
+        </TableView>
+        <Label layoutX="342.0" layoutY="50.0" prefHeight="27.0" prefWidth="200.0" text="Information by Contacts">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="reportsBackButton" layoutX="642.0" layoutY="540.0" mnemonicParsing="false" onAction="#reportsBackButtonClicked" prefHeight="25.0" prefWidth="68.0" text="Back" />
+        <Button fx:id="reportsExitButton" layoutX="760.0" layoutY="540.0" mnemonicParsing="false" onAction="#reportsExitButtonClicked" prefHeight="25.0" prefWidth="68.0" text="Exit" />
+        <TableView fx:id="reportsAppointmentsTypeTotalTableView" layoutX="318.0" layoutY="341.0" prefHeight="175.0" prefWidth="260.0">
+            <columns>
+                <TableColumn fx:id="reportsAppointmentsTypeTotalTypeColumn" prefWidth="132.0" text="Appointment Type" />
+                <TableColumn fx:id="reportsAppointmentsTypeTotalTotalColumn" prefWidth="127.0" text="Appointment Total" />
+            </columns>
+        </TableView>
+        <Label layoutX="329.0" layoutY="311.0" prefHeight="27.0" prefWidth="239.0" text="Appointment Total by Type">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

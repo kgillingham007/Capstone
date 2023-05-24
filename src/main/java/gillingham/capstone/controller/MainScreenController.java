@@ -186,7 +186,7 @@ public class MainScreenController {
         try {
             ObservableList<Appointments> allAppointmentsList = appointmentDAO.getAllAppointments();
             if (allAppointmentsList != null)
-                for (gillingham.softwaretwoc195.model.Appointments appointments : allAppointmentsList){
+                for (gillingham.capstone.model.Appointments appointments : allAppointmentsList){
                     mainScreenAppointmentsTableView.setItems(allAppointmentsList);
                 }
         }
