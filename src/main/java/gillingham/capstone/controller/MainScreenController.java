@@ -124,7 +124,7 @@ public class MainScreenController {
      */
     @FXML void mainScreenAddAppointmentButtonClicked(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/addappointment.fxml"));
+        loader.setLocation(getClass().getResource("/gillingham/capstone/addappointment.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -141,7 +141,7 @@ public class MainScreenController {
         Appointments selectedAppointment = mainScreenAppointmentsTableView.getSelectionModel().getSelectedItem();
         if (selectedAppointment != null){
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/modifyappointment.fxml"));
+            loader.setLocation(getClass().getResource("/gillingham/capstone/modifyappointments.fxml"));
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             ModifyAppointmentController controller = loader.getController();
@@ -292,7 +292,7 @@ public class MainScreenController {
      * @throws IOException if there is an issue opening the add customer
      */
     @FXML void mainScreenAddCustomerButtonClicked (ActionEvent event) throws SQLException, IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/gillingham/softwaretwoc195/addcustomer.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/gillingham/capstone/addcustomer.fxml"));
         Scene scene = new Scene(parent);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -309,7 +309,7 @@ public class MainScreenController {
         Customer selectedCustomer = mainScreenCustomerTableView.getSelectionModel().getSelectedItem();
         if (selectedCustomer != null){
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/modifycustomer.fxml"));
+            loader.setLocation(getClass().getResource("/gillingham/capstone/modifycustomers.fxml"));
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             ModifyCustomerController controller = loader.getController();
@@ -390,7 +390,7 @@ public class MainScreenController {
      * @throws IOException if there is an issue loading the reports screen
      */
     @FXML void mainScreenReportsButtonClicked (ActionEvent event) throws SQLException, IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/gillingham/softwaretwoc195/reports.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/gillingham/capstone/reports.fxml"));
         Scene scene = new Scene(parent);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
