@@ -197,7 +197,7 @@ public class ModifyCustomerController {
                 System.out.println("Modify customer save button executed");
             }
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/mainscreen.fxml"));
+            loader.setLocation(getClass().getResource("/gillingham/capstone/mainscreen.fxml"));
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -216,7 +216,7 @@ public class ModifyCustomerController {
     @FXML
     void modifyCustomerCancelButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/mainscreen.fxml"));
+        loader.setLocation(getClass().getResource("/gillingham/capstone/mainscreen.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

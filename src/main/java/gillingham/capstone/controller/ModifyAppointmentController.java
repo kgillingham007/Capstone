@@ -297,7 +297,7 @@ public class ModifyAppointmentController {
             }
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/mainscreen.fxml"));
+            loader.setLocation(getClass().getResource("/gillingham/capstone/mainscreen.fxml"));
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -315,7 +315,7 @@ public class ModifyAppointmentController {
      * @throws IOException if there is an issue accessing the main screen
      */
     @FXML void modifyAppointmentCancelButtonClicked (ActionEvent event) throws IOException{
-        Parent parent = FXMLLoader.load(getClass().getResource("/gillingham/softwaretwoc195/mainscreen.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/gillingham/capstone/mainscreen.fxml"));
         Scene scene = new Scene(parent);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

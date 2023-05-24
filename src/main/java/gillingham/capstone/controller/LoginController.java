@@ -127,7 +127,7 @@ public class LoginController implements Initializable {
 
             if (userID > 0){
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/gillingham/softwaretwoc195/mainscreen.fxml"));
+                loader.setLocation(getClass().getResource("/gillingham/capstone/mainscreen.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 stage = (Stage) loginScreenLoginButton.getScene().getWindow();
