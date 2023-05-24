@@ -100,38 +100,6 @@ public class ReportsController {
         contactsObservableList.forEach(contacts -> allContactNames.add(contacts.getContactName()));
         reportsSelectContactComboBox.setItems(allContactNames);
 
-        /*try {
-            int contactID = 0;
-            ObservableList<Appointments> getAllAppointmentsList = appointmentDAO.getAllAppointments();
-            ObservableList<Appointments> appointmentsInfo = FXCollections.observableArrayList();
-            ObservableList<Contacts> getAllContacts = contactDAO.getAllContacts();
-            Appointments contactAppointmentInfo;
-            //String contactName = (String) reportsSelectContactComboBox.getSelectionModel().getSelectedItem();
-            *//*for (Contacts contacts : getAllContacts){
-                if (contactName.equals(contacts.getContactName())){
-                    contactID = contacts.getContactID();
-                }
-            }*//*
-            String contactName = (String) reportsSelectContactComboBox.getSelectionModel().getSelectedItem();
-            *//*if (selectedItem != null) {
-                String contactName = (String) selectedItem;*//*
-                for (Contacts contacts : getAllContacts){
-                    if (contactName.equals(contacts.getContactName())){
-                        contactID = contacts.getContactID();
-                    }
-                }
-            //}
-            for (Appointments appointments : getAllAppointmentsList){
-                if (appointments.getContactID() == contactID){
-                    contactAppointmentInfo = appointments;
-                    appointmentsInfo.add(contactAppointmentInfo);
-                }
-            }
-            reportsContactInformationTableView.setItems(appointmentsInfo);
-        }
-        catch (SQLException throwables){
-            throwables.printStackTrace();
-        }*/
 
         try {
             ObservableList<Appointments> getAllAppointments = appointmentDAO.getAllAppointments();
@@ -234,74 +202,6 @@ public class ReportsController {
             throwables.printStackTrace();
         }
     }
-
-    /*@FXML public void appointmentMonthTypeTotals(){
-        try {
-            ObservableList<Appointments> getAllAppointments = appointmentDAO.getAllAppointments();
-            ObservableList<Month> appointmentMonths = FXCollections.observableArrayList();
-            ObservableList<Month> eachAppointmentMonth = FXCollections.observableArrayList();
-
-            ObservableList<String> appointmentType = FXCollections.observableArrayList();
-            ObservableList<String> eachAppointment = FXCollections.observableArrayList();
-
-            ObservableList<ReportType> reportType = FXCollections.observableArrayList();
-            ObservableList<ReportMonth> reportMonth = FXCollections.observableArrayList();
-
-            getAllAppointments.forEach(appointments -> appointmentType.add(appointments.getAppointmentType()));
-
-            getAllAppointments.stream().map(appointments -> appointments.getAppointmentStart().getMonth()).forEach(appointmentMonths::add);
-
-            appointmentMonths.stream().filter(month -> !eachAppointmentMonth.contains(month)).forEach(eachAppointmentMonth::add);
-
-            for (Appointments appointments : getAllAppointments){
-                String reportsAppointmentType = appointments.getAppointmentType();
-                if (!eachAppointment.contains(reportsAppointmentType)){
-                    eachAppointment.add(reportsAppointmentType);
-                }
-            }
-            for (Month month : appointmentMonths){
-                int totalMonths = Collections.frequency(appointmentMonths, month);
-                String monthName = month.name();
-                ReportMonth appointmentMonth = new ReportMonth(monthName, totalMonths);
-                reportMonth.add(appointmentMonth);
-            }
-            reportsAppointmentsMonthTotalTableView.setItems(reportMonth);
-
-            for (String type : eachAppointment){
-                String typeToSet = type;
-                int typeTotal = Collections.frequency(appointmentType , type);
-                ReportType appointmentTypes = new ReportType(typeToSet , typeTotal);
-                reportType.add(appointmentTypes);
-            }
-            for (Month month : eachAppointmentMonth){
-                String typeToSet = month.toString();
-                int typeTotal = Collections.frequency(appointmentType , typeToSet);
-                ReportType appointmentTypes = new ReportType(typeToSet, typeTotal);
-                reportType.add(appointmentTypes);
-            }
-
-            reportsAppointmentsTypeTotalTableView.setItems(reportType);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }*/
-
-    /*@FXML public void customerCountryTotal(){
-        try {
-            ObservableList<Report> totalCountries = reportDAO.getCountries();
-            ObservableList<Report> countriesToTotal = FXCollections.observableArrayList();
-
-            countriesToTotal.addAll(totalCountries);
-            reportsCustomerCountryTableView.setItems(countriesToTotal);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }*/
-
 
     /**Send the screen back to the main screen
      *
