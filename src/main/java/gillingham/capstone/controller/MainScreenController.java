@@ -5,6 +5,7 @@ import gillingham.capstone.Database.appointmentDAO;
 import gillingham.capstone.Database.customerDAO;
 import gillingham.capstone.model.Appointments;
 import gillingham.capstone.model.Customer;
+import gillingham.capstone.model.Search;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +32,7 @@ import static gillingham.capstone.Database.JDBC.connection;
  *
  */
 public class MainScreenController {
+
     Stage stage;
 
     /**Labels for the main screen
@@ -73,6 +75,9 @@ public class MainScreenController {
 
     //******** Reports Related: ********\
     @FXML private Button mainScreenReportsButton;
+    @FXML public Button mainScreenExitButton;
+    @FXML private TextField mainScreenCustomersSearchField;
+    @FXML private TextField mainScreenAppointmentsSearchField;
 
 
     /**Initialize the main screen
@@ -199,7 +204,7 @@ public class MainScreenController {
      *
      * @param event when the radio button is pressed
      * @throws SQLException if there is an issue accessing the database
-     * There is a lambda expression in this function Line:212
+     * There is a lambda expression in this function Line:220
      */
     @FXML void mainScreenCurrentMonthRadioButtonClicked(ActionEvent event) throws SQLException{
         try{
@@ -254,6 +259,27 @@ public class MainScreenController {
             e.printStackTrace();
         }
     }
+
+    /**Used for the Appointment related search field
+     *
+     * @param event when the search field is typed into or entered
+     */
+    @FXML public void mainScreenAppointmentsSearchFieldEntered(ActionEvent event){
+        String text = mainScreenAppointmentsSearchField.getText();
+        ObservableList<Appointments> appointments = Search.lookUpAppointment_Name(text);
+        if (text.matches("")){
+            mainScreenAppointmentsTableView.setItems(Appointments.getAllAppointments());
+            mainScreenAppointmentsSearchField.setPromptText("Search by Appointment Title");
+        }
+        if (Search.lookUpAppointment_Name(text).size() == 0){
+            mainScreenAppointmentsSearchField.setText("");
+            mainScreenAppointmentsSearchField.setPromptText("Part does not exist");
+        }
+        else mainScreenAppointmentsTableView.setItems(appointments);
+    }
+
+
+
 
 
     //******** Customer Related: ********
@@ -333,6 +359,24 @@ public class MainScreenController {
             ObservableList<Appointments> updatedAppointmentsList = appointmentDAO.getAllAppointments();
             mainScreenAppointmentsTableView.setItems(updatedAppointmentsList);
         }
+    }
+
+    /**Used for the Customer related search field
+     *
+     * @param event when the search field is typed into or entered
+     */
+    @FXML public void mainScreenCustomersSearchFieldEntered(ActionEvent event){
+        String text = mainScreenCustomersSearchField.getText();
+        ObservableList<Customer> customers = Search.lookUpCustomer_Name(text);
+        if (text.matches("")){
+            mainScreenCustomerTableView.setItems(Customer.getAllCustomers());
+            mainScreenCustomersSearchField.setPromptText("Search by Customer Name");
+        }
+        if (Search.lookUpCustomer_Name(text).size() == 0){
+            mainScreenCustomersSearchField.setText("");
+            mainScreenCustomersSearchField.setPromptText("Customer does not exist");
+        }
+        else mainScreenCustomerTableView.setItems(customers);
     }
 
 
