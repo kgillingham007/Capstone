@@ -27,8 +27,6 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static gillingham.capstone.Database.JDBC.connection;
-
 /**Controller for the main screen
  *
  */
@@ -106,7 +104,7 @@ public class MainScreenController {
 
 
         //******** Customer Related: ********
-        ObservableList<Customer> allCustomersList = customerDAO.getAllCustomers(connection);
+        ObservableList<Customer> allCustomersList = customerDAO.getAllCustomers();
         mainScreenCustomerIDColumn.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         mainScreenCustomerNameColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         mainScreenCustomerAddressColumn.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
@@ -358,7 +356,7 @@ public class MainScreenController {
             }
             preparedStatementDelete.setInt(1,customerIDFromTable);
             preparedStatementDelete.execute();
-            ObservableList<Customer> updatedCustomerList = customerDAO.getAllCustomers(connection);
+            ObservableList<Customer> updatedCustomerList = customerDAO.getAllCustomers();
             mainScreenCustomerTableView.setItems(updatedCustomerList);
             ObservableList<Appointments> updatedAppointmentsList = appointmentDAO.getAllAppointments();
             mainScreenAppointmentsTableView.setItems(updatedAppointmentsList);
@@ -369,16 +367,18 @@ public class MainScreenController {
      *
      * @param event when the search field is typed into or entered
      */
-    @FXML public void mainScreenCustomersSearchFieldEntered(ActionEvent event){
+    @FXML public void mainScreenCustomersSearchFieldEntered(ActionEvent event) throws SQLException{
         String text = mainScreenCustomersSearchField.getText();
         ObservableList<Customer> customers = Search.lookUpCustomer_Name(text);
         if (text.matches("")){
             mainScreenCustomerTableView.setItems(Customer.getAllCustomers());
             mainScreenCustomersSearchField.setPromptText("Search by Customer Name");
+            anchorPane.requestFocus();
         }
         if (Search.lookUpCustomer_Name(text).size() == 0){
             mainScreenCustomersSearchField.setText("");
             mainScreenCustomersSearchField.setPromptText("Customer does not exist");
+            anchorPane.requestFocus();
         }
         else mainScreenCustomerTableView.setItems(customers);
     }

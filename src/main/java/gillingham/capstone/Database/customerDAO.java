@@ -4,7 +4,6 @@ import gillingham.capstone.model.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,13 +13,13 @@ import java.sql.SQLException;
  */
 public class customerDAO {
 
-    /**Used to get all customers
+    /**
+     * Used to get all customers
      *
-     * @param connection to the database
      * @return the list of all customers
      * @throws SQLException if there is an issue accessing the database
      */
-    public static ObservableList<Customer> getAllCustomers(Connection connection) throws SQLException{
+    public static ObservableList<Customer> getAllCustomers() throws SQLException{
         String query = "SELECT customers.Customer_ID , customers.Customer_Name , customers.Address , customers.Postal_Code , customers.Phone , customers.Division_ID , first_level_divisions.Division from customers INNER JOIN first_level_divisions ON customers.Division_ID = first_level_divisions.Division_ID";
         //String sqlQuery = "SELECT * FROM customers";
         PreparedStatement preparedStatement = JDBC.getConnection().prepareStatement(query);

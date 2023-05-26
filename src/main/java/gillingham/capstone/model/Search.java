@@ -1,6 +1,7 @@
 package gillingham.capstone.model;
 
 import gillingham.capstone.Database.appointmentDAO;
+import gillingham.capstone.Database.customerDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -18,7 +19,13 @@ public class Search {
 
     public static ObservableList<Customer> lookUpCustomer_Name(String partialCustomerName){
         ObservableList<Customer> customerName = FXCollections.observableArrayList();
-        ObservableList<Customer> allCustomers = Customer.getAllCustomers();
+        ObservableList<Customer> allCustomers = null;
+        try {
+            allCustomers = customerDAO.getAllCustomers();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
         for (Customer customer : allCustomers){
             if (customer.getName().contains(partialCustomerName)){
                 customerName.add(customer);

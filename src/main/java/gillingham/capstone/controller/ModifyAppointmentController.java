@@ -137,7 +137,7 @@ public class ModifyAppointmentController {
                     !modifyAppointmentStartTimeComboBox.getValue().isEmpty() && !modifyAppointmentEndTimeComboBox.getValue().isEmpty() && !modifyAppointmentCustomerIDTextField.getText().isEmpty() &&
                     !modifyAppointmentUserIDTextField.getText().isEmpty() && !modifyAppointmentContactComboBox.getValue().isEmpty()){
 
-                ObservableList<Customer> getAllCustomers = customerDAO.getAllCustomers(connection);
+                ObservableList<Customer> getAllCustomers = customerDAO.getAllCustomers();
                 ObservableList<Integer> storeCustomerIDs = FXCollections.observableArrayList();
                 ObservableList<userDAO> getAllUserIDs = userDAO.getAllUsers();
                 ObservableList<Integer> storeUserIDs = getAllUserIDs.stream().map(User::getUserID).collect(Collectors.toCollection(FXCollections::observableArrayList));

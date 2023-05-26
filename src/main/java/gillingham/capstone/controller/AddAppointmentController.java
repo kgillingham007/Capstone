@@ -118,7 +118,7 @@ public class AddAppointmentController {
                     !addAppointmentStartTimeComboBox.getValue().isEmpty() && !addAppointmentEndTimeComboBox.getValue().isEmpty() && !addAppointmentCustomerIDTextField.getText().isEmpty() &&
                     !addAppointmentUserIDTextField.getText().isEmpty() && !addAppointmentContactComboBox.getValue().isEmpty()) {
 
-                ObservableList<Customer> getAllCustomers = customerDAO.getAllCustomers(connection);
+                ObservableList<Customer> getAllCustomers = customerDAO.getAllCustomers();
                 ObservableList<Integer> storeCustomerIDs = FXCollections.observableArrayList();
                 ObservableList<userDAO> getAllUserIDs = userDAO.getAllUsers();
                 //ObservableList<Integer> storeUserIDs = getAllUserIDs.stream().map(User::getUserID).collect(Collectors.toCollection(FXCollections::observableArrayList));
