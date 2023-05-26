@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -78,6 +79,7 @@ public class MainScreenController {
     @FXML public Button mainScreenExitButton;
     @FXML private TextField mainScreenCustomersSearchField;
     @FXML private TextField mainScreenAppointmentsSearchField;
+    @FXML private AnchorPane anchorPane;
 
 
     /**Initialize the main screen
@@ -264,16 +266,18 @@ public class MainScreenController {
      *
      * @param event when the search field is typed into or entered
      */
-    @FXML public void mainScreenAppointmentsSearchFieldEntered(ActionEvent event){
+    @FXML public void mainScreenAppointmentsSearchFieldEntered(ActionEvent event) throws SQLException {
         String text = mainScreenAppointmentsSearchField.getText();
         ObservableList<Appointments> appointments = Search.lookUpAppointment_Name(text);
         if (text.matches("")){
             mainScreenAppointmentsTableView.setItems(Appointments.getAllAppointments());
             mainScreenAppointmentsSearchField.setPromptText("Search by Appointment Title");
+            anchorPane.requestFocus();
         }
         if (Search.lookUpAppointment_Name(text).size() == 0){
             mainScreenAppointmentsSearchField.setText("");
             mainScreenAppointmentsSearchField.setPromptText("Part does not exist");
+            anchorPane.requestFocus();
         }
         else mainScreenAppointmentsTableView.setItems(appointments);
     }

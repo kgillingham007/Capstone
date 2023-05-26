@@ -34,10 +34,10 @@ public class Search {
             allAppointments = appointmentDAO.getAllAppointments();
         }
         catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         for (Appointments appointments : allAppointments){
-            if (appointments.getName().contains(partialAppointmentName)){
+            if (appointments.getAppointmentTitle().contains(partialAppointmentName)){
                 appointmentName.add(appointments);
             }
         }
