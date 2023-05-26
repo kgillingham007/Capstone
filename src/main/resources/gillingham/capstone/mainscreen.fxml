@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="569.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.capstone.controller.MainScreenController">
+<AnchorPane prefHeight="569.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gillingham.capstone.controller.MainScreenController">
     <children>
         <Label layoutX="35.0" layoutY="45.0" prefHeight="27.0" prefWidth="121.0" text="Appointments">
             <font>
@@ -67,7 +67,7 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="mainScreenReportsButton" layoutX="735.0" layoutY="373.0" mnemonicParsing="false" onAction="#mainScreenReportsButtonClicked" text="Reports" />
+        <Button fx:id="mainScreenReportsButton" layoutX="735.0" layoutY="420.0" mnemonicParsing="false" onAction="#mainScreenReportsButtonClicked" text="Reports" />
         <Button fx:id="mainScreenExitButton" layoutX="553.0" layoutY="529.0" mnemonicParsing="false" onAction="#mainScreenExitButtonClicked" prefHeight="25.0" prefWidth="51.0" text="Exit" />
       <TextField fx:id="mainScreenCustomersSearchField" alignment="CENTER" layoutX="415.0" layoutY="317.0" onAction="#mainScreenCustomersSearchFieldEntered" prefHeight="25.0" prefWidth="193.0" promptText="Search by Customer Name" />
       <TextField fx:id="mainScreenAppointmentsSearchField" alignment="CENTER" layoutX="655.0" layoutY="46.0" onAction="#mainScreenAppointmentsSearchFieldEntered" prefHeight="25.0" prefWidth="185.0" promptText="Search by Appointment Title" />
