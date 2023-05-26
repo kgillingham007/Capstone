@@ -27,7 +27,7 @@ public class Search {
             e.printStackTrace();
         }
         for (Customer customer : allCustomers){
-            if (customer.getName().contains(partialCustomerName)){
+            if (customer.getCustomerName().contains(partialCustomerName)){
                 customerName.add(customer);
             }
         }
