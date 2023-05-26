@@ -1,7 +1,10 @@
 package gillingham.capstone.model;
 
+import gillingham.capstone.Database.appointmentDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
 
 public class Search {
 
@@ -24,9 +27,15 @@ public class Search {
         return customerName;
     }
 
-    public static ObservableList<Appointments> lookUpAppointment_Name(String partialAppointmentName){
+    public static ObservableList<Appointments> lookUpAppointment_Name(String partialAppointmentName) throws SQLException {
         ObservableList<Appointments> appointmentName = FXCollections.observableArrayList();
-        ObservableList<Appointments> allAppointments = Appointments.getAllAppointments();
+        ObservableList<Appointments> allAppointments = null;
+        try {
+            allAppointments = appointmentDAO.getAllAppointments();
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         for (Appointments appointments : allAppointments){
             if (appointments.getName().contains(partialAppointmentName)){
                 appointmentName.add(appointments);
