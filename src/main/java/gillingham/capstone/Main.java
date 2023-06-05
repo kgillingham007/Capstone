@@ -22,7 +22,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loginscreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 700);
-        stage.setTitle("Software Two - C195");
+        stage.setTitle("Kenneth Gillingham Capstone");
         stage.setScene(scene);
         stage.show();
     }
